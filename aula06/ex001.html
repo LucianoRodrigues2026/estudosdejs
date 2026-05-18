@@ -14,7 +14,7 @@
       width: 0px;
     }
     body{
-      background-image: radial-gradient(circle, blue, rgb(115, 115, 222));
+      background-image: radial-gradient(circle, rgb(0, 255, 242), rgb(77, 77, 218));
       width: 100vw;
       height: 100vh;
       display: flex;
@@ -35,6 +35,7 @@
       font-variant: small-caps;
       font-family: 'Courier New', Courier, monospace;
       font-weight: bolder;
+      box-shadow: 0px 0px 25px #2100b5;
     }
   </style>
 </head>
@@ -45,13 +46,12 @@
   </section>
 </body>
 <script>
-    window.alert('minha primeira mensagem!')//popup de mensagem
-    window.confirm('Esta gostando de javaScript?')//popup de inquete
     let nome = window.prompt('Qual e o seu nome?')// popup de pergunta e resposta
     var n1 = Number(window.prompt('Vamos calcular com javascript'))
     var n2 = Number(window.prompt('Vamos la mas um número'))
     var soma = n1 + n2
-    window.alert(`${nome}, a soma entre os numeros e igual a ${soma}`)
+    window.alert(`${nome}, a soma entre os numeros ${n1} e ${n2} e igual a ${soma}`)
+    window.alert('foi um prazer calcular com vc, ' + nome + ' !')//forma concatenada
   </script>
   
 </html>
