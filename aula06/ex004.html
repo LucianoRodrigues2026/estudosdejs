@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercio04</title>
+</head>
+<style>
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  body {
+    font-size: 3em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: column nowrap;
+  
+    width: 100vw;
+    height: 100vh;
+  }
+
+  strong { color: red; background-color: black;}
+  
+  div {
+    width: 300px;
+    padding: 10px;
+    display: block;
+  }
+</style>
+<body>
+  <script>
+    var nome = window.prompt('qual e o seu nome?')
+    window.alert(`e um prazer conhecer você ${nome.toLowerCase()}`)
+    window.alert(`o seu nome tem ${nome.length} letras seu nome em letras MAIUSCULAS e ${nome.toUpperCase()} `)
+
+    document.write(`<div>Olá, <strong>${nome}</strong>! Seu nome tem ${nome.length}, letras.</div> `)
+
+    document.write(`<div>Esse é seu nome em MAIUSCULAS <strong>${nome.toUpperCase()}</strong></div>`)
+
+    document.write(`<div>seu nome em letras minusculas <strong>${nome.toLowerCase()}</strong></div>`)
+  </script>
+</body>
+</html>
