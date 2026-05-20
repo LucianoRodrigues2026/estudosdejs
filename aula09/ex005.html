@@ -18,15 +18,24 @@
   </style>
 </head>
 <body>
-  <h1>comesando os estudos dce DOM</h1>
+  <h1 name="titulo">comesando os estudos de DOM</h1>
   <p>Aqui vai o resultado</p>
-  <p>Aprenda a usar <strong>DOM</strong> em javascript</p>
-  <div>Clique em mim!</div>
+  <p class="paragrafo">Aprenda a usar <strong>DOM</strong> em javascript</p>
+  <div id="link">Clique em mim!</div><br>
 
   <script>
     var p1 = document.getElementsByTagName('p')[0]
-    document.write(`esta escrito no primeiro paragrafo (p): ${p1.innerText}`)
+    document.write(`esta escrito no primeiro paragrafo (p): ${p1.innerText}<br><br>`)
 
+    var h1 = document.getElementsByName('titulo')[0]
+    document.write(`H1 padrão, ${h1.innerText}<br><br>`)
+
+    var p2 = document.getElementsByClassName('paragrafo')[0]
+    document.write(`O 2º paragrafo, ${p2.innerHTML}<br><br>`)
+
+    var di = document.getElementById('link')
+    document.write(`A div, ${di.innerHTML}`)
+    di.style.backgroundColor = 'red'
   </script>
 </body>
 </html>
