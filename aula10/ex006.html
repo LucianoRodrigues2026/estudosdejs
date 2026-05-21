@@ -26,16 +26,19 @@
   </style>
 </head>
 <body>
-  <div id="area" onclick="clicou()" onmouseenter="entrou()" onmouseout="saiu()">
+  <div id="area" onclick="clicou()" onmouseenter="entrou()" onmouseout="saiu()" >
     Interaja...
 
   </div> 
   <script>
+    var b = window.document.getElementsByTagName('body')[0]
     var a = window.document.getElementById('area')
     function clicou(){
       a.innerText = 'clicou!'
       a.style.backgroundColor = 'red'
+      b.style.backgroundColor = 'black'
     }
+  
     function entrou(){
       a.innerText = 'entrou!'
       a.style.backgroundColor = 'magenta'
