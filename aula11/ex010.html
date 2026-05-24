@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>velocidade</title>
+  <style>
+    #resp {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Descubra se vc foi multado</h1>
+  <input type="number" name="velocidade" id="velocidade">
+  <input type="button" value="eviar" onclick="enviar()">
+  <br>
+  <div id="resp"></div>
+  <script>
+    function enviar(){
+      var res = window.document.querySelector('div#resp')
+      var veloc = document.getElementById('velocidade')
+      var velo = Number(veloc.value)
+
+      if (velo <= 60){
+        res.innerHTML = `Vc esta no limite de velocidade permitido`
+      }else {
+        res.innerHTML = `Vc ultrapassou o limite de velocidade <br>`
+        res.innerHTML += `vc sera multado em 10 reais a cada km/h acima da velocidade <br>`
+        var multa = (velo - 60) * 10
+        multa = multa.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'})
+        res.innerHTML += `sua multa ficol no valor de ${multa}.`
+      }
+    }
+  </script>
+</body>
+</html>
