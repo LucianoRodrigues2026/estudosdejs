@@ -1,0 +1,38 @@
+@charset "utr-8";
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column nowrap;
+    }
+    #conteiner {
+      margin: 25px 0px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px black;
+      width: 400px;
+      height: 300px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 60px 1fr;
+      align-self: center;
+    }
+    #texto{
+      justify-self: center;
+      align-self: center;
+
+    }
+    #img {
+      background-color: antiquewhite;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      justify-self: center;
+      align-self: center;
+    }

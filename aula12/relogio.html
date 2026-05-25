@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relogio</title>
+  <style>
+    main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div {
+      border: 1px solid;
+      width: 250px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="horas"></div>
+  </main>
+  <script>
+    var agora = new Date()
+    var horaAgora = agora.getHours()
+    horaAgora.toFixed(2)
+    var div = document.getElementById('horas')
+    div.innerHTML = horaAgora
+
+  </script>
+  
+</body>
+</html>
