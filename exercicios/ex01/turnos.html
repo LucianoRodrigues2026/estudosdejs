@@ -7,28 +7,17 @@
   <title>turnos</title>
   
 </head>
-<body>
+<body onload="apload()">
   <main id="corpo">
     <h1>Hora  do dia</h1>
     <div id="conteiner">
-      <div id="texto"><h2>Agora são <strong id="hora"></strong> Horas</h2></div>
+      <div id="texto">Agora são Horas</div>
       <div id="img"></div>
     </div>
-    <p>&copy;luciano Rodrigues</p>
+    <footer>
+      <p>&copy;luciano Rodrigues</p>
+    </footer>
   </main>
-
-  <script>
-    var horaAtual = new Date()
-    var horaControle = horaAtual.getHours()
-    switch (horaControle){
-      case horaControle < 12:
-        
-        break
-      case horaControle > 12 && horaControle <= 18:
-        break
-      case horaControle >= 18 && horaControle > 0:
-        break
-    }
-  </script>
+  <script src="ineratividade.js"></script>
 </body>
 </html>
