@@ -35,3 +35,14 @@ section {
 #resultado {
   color: black;
 }
+
+#imagem {
+  display: none;
+  justify-self: center;
+  background-size: cover;
+  background-position: center center;
+  width: 200px;
+  height: 200px;
+  background-color: aquamarine;
+
+}
