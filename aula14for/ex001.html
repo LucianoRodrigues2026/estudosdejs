@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>integrando script</title>
+  <style>
+    body {
+      background-color: #4d89e1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column nowrap;
+    }
+    section {
+      background-color: #f5f5dc;
+      height: 400px;
+      width: 400px;
+      box-shadow: 0px 0px 10px black;
+      border-radius: 20px;
+      padding: 30px;
+    }
+    header, footer{
+      margin: 30px 0px;
+      color: #ffffff;
+    }
+    input {
+      margin: 10px 0px;
+    }
+  </style>
+</head>
+<body>
+  <header>Vamos contar</header>
+  <section>
+    <div class="inputs">
+      <label for="inicio">Inicio:</label>
+      <input type="number" name="ini" id="inicio"><br>
+      <label for="fim">Fim:</label>
+      <input type="number" name="fim" id="fim"><br>
+      <label for="passo">Passo:</label>
+      <input type="number" name="pas" id="passo"><br>
+      <input type="button" value="contar">
+    </div>
+    <div class="interativo">
+      contando...
+    </div>
+  </section>
+  <footer>&copy;Luciano Rodrigues</footer>  
+</body>
+</html>
