@@ -14,8 +14,7 @@
     }
     section {
       background-color: #f5f5dc;
-      height: 400px;
-      width: 400px;
+     
       box-shadow: 0px 0px 10px black;
       border-radius: 20px;
       padding: 30px;
@@ -39,12 +38,38 @@
       <input type="number" name="fim" id="fim"><br>
       <label for="passo">Passo:</label>
       <input type="number" name="pas" id="passo"><br>
-      <input type="button" value="contar">
+
+      <input type="button" value="contar" onclick="start()">
     </div>
-    <div class="interativo">
+    <div id="interativo">
       contando...
     </div>
   </section>
   <footer>&copy;Luciano Rodrigues</footer>  
+  <script>
+    function start(){
+      var inicio = window.document.getElementById('inicio')
+      var fim = window.document.getElementById('fim')
+      var salto = window.document.getElementById('passo')
+      
+
+      if (inicio.value.length == 0){
+        window.alert('vc, precisa me infomar um inicio?')
+      }else if (fim.value.length == 0){
+          window.alert('ate que nùmero vamos contar')
+      }else if (salto.value.length == 0){
+        var salto = 1
+        for( var contador = Number(inicio.value);contador <= Number(fim.value); contador ++){
+          var interativo = window.document.getElementById('interativo')
+          interativo.innerText = `contamos ${contador}`
+
+        }
+
+      }else{
+        window.alert('ok')
+      }
+    }
+
+  </script>
 </body>
 </html>
