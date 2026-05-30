@@ -13,41 +13,87 @@
       flex-flow: column nowrap;
     }
     section {
+      max-width: 400px;
       background-color: #f5f5dc;
      
       box-shadow: 0px 0px 10px black;
       border-radius: 20px;
-      padding: 30px;
+      padding: 20px;
     }
     header, footer{
       margin: 30px 0px;
       color: #ffffff;
+      p{
+        font-style: italic;
+      }
     }
     input {
+      padding: 5px;
       margin: 10px 0px;
+      border-radius: 20px;
     }
+    label {
+      color: #ffffff;
+      font-size: 20px;
+    }
+    div.capsula{
+      border-radius: 20px;
+      margin: 1px 0px;
+      padding: 1px 20px;
+      background-color: #037979;
+    }
+    #butão {
+      width: 100%;
+      border-radius: 20px;
+    }
+    #butão:hover {
+      color: #ffffff;
+      background-color: #010148;
+    }
+    #interativo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column wrap;
+      max-width: 100%;
+      word-break: break-all;
+    }
+    strong {
+      color: red;
+    }
+
   </style>
 </head>
 <body>
-  <header>Vamos contar</header>
+  <header><h1>Progreção Numerica</h1></header>
   <section>
     <div class="inputs">
-      <label for="inicio">Inicio:</label>
-      <input type="number" name="ini" id="inicio"><br>
-      <label for="fim">Fim:</label>
-      <input type="number" name="fim" id="fim"><br>
-      <label for="passo">Passo:</label>
-      <input type="number" name="pas" id="passo"><br>
+      <div class="capsula">
+        <label for="inicio">Inicio:</label>
+        <input type="number" name="ini" id="inicio" placeholder="1º">
+      </div>
+      
+      <div class="capsula">
+        <label for="passo">Passo:</label>
+        <input type="number" name="pas" id="passo" placeholder="Progreção">
+      </div>
 
-      <input type="button" value="contar" onclick="start()">
+      <div class="capsula">
+        <label for="fim">Fim:</label>
+        <input type="number" name="fim" id="fim" placeholder="Ultimo">
+      </div>
+
+      <input id="butão" type="button" value="contar" onclick="start()">
     </div>
     <div id="interativo">
-      contando...
+      <!--contando...-->
     </div>
   </section>
-  <footer>&copy;Luciano Rodrigues</footer>  
+  <footer><p>&copy;Luciano Rodrigues</p></footer>  
   <script>
     function start(){
+      var button = window.document.getElementById('butão')
+      button.style.backgroundColor = '#fae572'
       var inicio = window.document.getElementById('inicio')
       var fim = window.document.getElementById('fim')
       var salto = window.document.getElementById('passo')
@@ -57,19 +103,33 @@
         window.alert('vc, precisa me infomar um inicio?')
       }else if (fim.value.length == 0){
           window.alert('ate que nùmero vamos contar')
-      }else if (salto.value.length == 0){
-        var salto = 1
-        for( var contador = Number(inicio.value);contador <= Number(fim.value); contador ++){
-          var interativo = window.document.getElementById('interativo')
-          interativo.innerText = `contamos ${contador}`
+      }else if (salto.value.length == 0 || Number(salto.value) === 0){
+        var interativo = window.document.getElementById('interativo')
+        var lista = [];
 
+        
+        for(var contador = Number(inicio.value);contador <= Number(fim.value); contador ++){
+          
+          var numero = contador
+          lista.push(numero)
         }
 
+        var emoj = lista.join(' 🍎 ')
+        interativo.innerHTML = `<p>Consideramos passo 1 para sua progreçõa </p>  ${emoj}`
+
       }else{
-        window.alert('ok')
+        var interativo = window.document.getElementById('interativo')
+        var lista = [];
+
+        for(var contador = Number(inicio.value);contador <= Number(fim.value); contador = contador + Number(salto.value)){
+          
+          var numero = contador
+          lista.push(numero)
+        }
+        var emoj = lista.join(' ➡️ ')
+        interativo.innerHTML = `<p>Consideramos passo <strong>${Number(salto.value)} </strong> para sua progreçõa </p> ${emoj}`       
       }
     }
-
   </script>
 </body>
 </html>
