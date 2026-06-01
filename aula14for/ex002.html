@@ -29,7 +29,7 @@
     }
     input {
       padding: 5px;
-      margin: 10px 0px;
+      margin: 5px 0px;
       border-radius: 20px;
     }
     label {
@@ -38,7 +38,7 @@
     }
     div.capsula{
       border-radius: 20px;
-      margin: 1px 0px;
+      margin: 10px 0px;
       padding: 1px 20px;
       background-color: #037979;
     }
@@ -58,8 +58,15 @@
       max-width: 100%;
       word-break: break-all;
     }
-    strong {
+    #tabuadaResultado{
+      max-width: 105px;
+      height: auto;
+      border-radius: 10px;      
       color: red;
+      
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(10, 1fr);
     }
 
   </style>
@@ -72,12 +79,35 @@
         <label for="num">Numero:</label>
         <input type="number" name="num" id="num" placeholder="Digite um número">
       </div>
-      <input id="butão" type="button" value="Open Tabuada">
-      
     <div id="resultado">
       <!--Tabuada...-->
+      <textarea name="resultado" id="tabuadaResultado"></textarea>
     </div>
+    <input id="butão" type="button" value="Open Tabuada" onclick="start()">
   </section>
   <footer><p>&copy; Luciano Rodrigues</p></footer>  
 </body>
+<script>
+  function start(){
+    var butão = document.getElementById('butão')
+    butão.style.backgroundColor = '#fae572'
+    butão.style.color = 'black'
+
+    var num = document.getElementById('num')
+    var numero = Number(num.value)    
+    var listaTabuada = []
+
+    if(num.value.length == 0){
+      window.alert('Digite um número velinho')
+
+    }else {
+      for (var numerando = 1; numerando <= 10; numerando ++){
+        var mult = numerando * numero
+        listaTabuada.push(`${numerando} x ${numero} = ${mult}`)
+    }
+    }
+    var resultado = document.getElementById('tabuadaResultado')
+    resultado.innerText = listaTabuada.join(' ')
+  }
+</script>
 </html>
