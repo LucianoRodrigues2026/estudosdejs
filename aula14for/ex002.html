@@ -59,14 +59,12 @@
       word-break: break-all;
     }
     #tabuadaResultado{
-      max-width: 105px;
-      height: auto;
-      border-radius: 10px;      
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #0707c5;
       color: red;
       
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(10, 1fr);
+      
     }
 
   </style>
@@ -81,7 +79,10 @@
       </div>
     <div id="resultado">
       <!--Tabuada...-->
-      <textarea name="resultado" id="tabuadaResultado"></textarea>
+      <select name="tabuada" id="tabuadaResultado" size="10">
+        <option value="">Digite um Número</option>
+      </select>
+
     </div>
     <input id="butão" type="button" value="Open Tabuada" onclick="start()">
   </section>
@@ -89,25 +90,27 @@
 </body>
 <script>
   function start(){
+    var tabuadaResultado = document.getElementById('tabuadaResultado')
     var butão = document.getElementById('butão')
     butão.style.backgroundColor = '#fae572'
     butão.style.color = 'black'
 
     var num = document.getElementById('num')
-    var numero = Number(num.value)    
-    var listaTabuada = []
+    var numero = Number(num.value)
 
     if(num.value.length == 0){
       window.alert('Digite um número velinho')
 
     }else {
+      tabuadaResultado.innerHTML = ''
       for (var numerando = 1; numerando <= 10; numerando ++){
         var mult = numerando * numero
-        listaTabuada.push(`${numerando} x ${numero} = ${mult}`)
+        var item = document.createElement('option')
+        item.text =`${numerando} x ${numero} = ${mult}`
+        tabuadaResultado.appendChild(item)
+        
+      }
     }
-    }
-    var resultado = document.getElementById('tabuadaResultado')
-    resultado.innerText = listaTabuada.join(' ')
   }
 </script>
 </html>
