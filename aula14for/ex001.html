@@ -65,7 +65,7 @@
   </style>
 </head>
 <body>
-  <header><h1>Progreção Numerica</h1></header>
+  <header><h1>Progressão Numerica</h1></header>
   <section>
     <div class="inputs">
       <div class="capsula">
@@ -94,6 +94,7 @@
     function start(){
       var button = window.document.getElementById('butão')
       button.style.backgroundColor = '#fae572'
+      button.style.color ='black'
       var inicio = window.document.getElementById('inicio')
       var fim = window.document.getElementById('fim')
       var salto = window.document.getElementById('passo')
@@ -104,30 +105,67 @@
       }else if (fim.value.length == 0){
           window.alert('ate que nùmero vamos contar')
       }else if (salto.value.length == 0 || Number(salto.value) === 0){
+        window.alert('vamos considerar o valo 1 para sua progressão')
         var interativo = window.document.getElementById('interativo')
         var lista = [];
+        if (Number(fim.value) > Number(inicio.value)){
+          for(var contador = Number(inicio.value);contador <= Number(fim.value); contador ++){
+            
+            var numero = contador
+            lista.push(numero)
+          }
 
-        
-        for(var contador = Number(inicio.value);contador <= Number(fim.value); contador ++){
-          
-          var numero = contador
-          lista.push(numero)
+          var emoj = lista.join(' 🍎 ')
+          interativo.innerHTML = `<p>Consideramos passo 1 para sua progressão </p>  ${emoj}`
+        }else{
+          var interativo = window.document.getElementById('interativo')
+          var lista = [];
+
+          for(var contador = Number(inicio.value);contador >= Number(fim.value); contador = contador - 1){
+            
+            var numero = contador
+            lista.push(numero)
+          }
+          var emoj = lista.join(' ➡️ ')
+          interativo.innerHTML = `<p>Consideramos passo <strong> 1 </strong> para sua progressão </p> ${emoj}`
+
         }
 
-        var emoj = lista.join(' 🍎 ')
-        interativo.innerHTML = `<p>Consideramos passo 1 para sua progreçõa </p>  ${emoj}`
+         
 
       }else{
-        var interativo = window.document.getElementById('interativo')
-        var lista = [];
+        var inicio = window.document.getElementById('inicio')
+        var fim = window.document.getElementById('fim')
+        var salto = window.document.getElementById('passo')
+        
+        //subtrai -1
+        if (Number(inicio.value) > Number(fim.value)){
+          var interativo = window.document.getElementById('interativo')
+          var lista = [];
 
-        for(var contador = Number(inicio.value);contador <= Number(fim.value); contador = contador + Number(salto.value)){
-          
-          var numero = contador
-          lista.push(numero)
-        }
-        var emoj = lista.join(' ➡️ ')
-        interativo.innerHTML = `<p>Consideramos passo <strong>${Number(salto.value)} </strong> para sua progreçõa </p> ${emoj}`       
+          for(var contador = Number(inicio.value);contador >= Number(fim.value); contador = contador - Number(salto.value)){
+            
+            var numero = contador
+            lista.push(numero)
+          }
+          var emoj = lista.join(' ➡️ ')
+          interativo.innerHTML = `<p>Consideramos passo <strong>${Number(salto.value)} </strong> para sua progressão </p> ${emoj}`
+         //soma mas 1
+        }else if (Number(inicio.value) <= Number(fim.value)){
+          var interativo = window.document.getElementById('interativo')
+          var lista = [];
+          var contador = Number(inicio.value)
+
+          do {
+            var numero = contador
+            lista.push(numero)
+            contador = contador + Number(salto.value)
+          } while (contador <= Number(fim.value));
+
+          var emoj = lista.join(' ➡️ ')
+          interativo.innerHTML = `<p>Consideramos passo <strong>${Number(salto.value)} </strong> para sua progressão </p> ${emoj}`
+
+      }
       }
     }
   </script>
