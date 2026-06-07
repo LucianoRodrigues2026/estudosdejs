@@ -60,40 +60,39 @@
 
     <div></div>
 
-    <form>
+      <form>
+        <input type="text" name="login" id="login" placeholder="Usuario" autocomplete="on" required>
+        <input type="password" name="password" id="senha" placeholder="senha" required>
+        
+        <input type="submit" value="Login" id="butão" onclick="login()">
+      </form>
 
-      <input type="text" name="login" id="login" placeholder="Usuario" autocomplete="on">
-
-      <input type="password" name="password" id="senha" placeholder="senha" required>
-         
-      <input type="submit" value="Login" id="butão" onclick="login()">
-    </form>
   </section>
 
 
 
 
-  <script>
+ <script>
 
+  function login(){
 
+    var usuario = document.getElementById('loginf').value;
+    var senha = document.getElementById('senha').valeu;
 
-    function login(event){
+    if (usuario == 'admin' && senha == 'admin'){
 
-      preventDefalt();
+      window.alert('login feito com sucesso');
+
+    }else{
       
-      var usuario = document.getElementById('login').value;
-      var senha = document.getElementById('senha').value;
+      window.alert('preencha os dados coretamente');
 
-      if (usuario == 'admin' && senha == 'admin'){
-        window.alert('login feito com sucesso!')
-        location.href = 'pedidos.html';
-      }else{
-        window.alert('Senha ou Usuário INVALIDOS')
-      }
     }
 
+  }
 
-  </script>  
+
+ </script>
 
 
 </body>
