@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>organisador de pedidos</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bolder;
+    }
+    body{
+      background-image: url('Gemini_Generated_Image_yfgztlyfgztlyfgz.png');
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   
+    section {
+      max-width: 400px;
+      box-shadow: 0px 0px 20px black;
+      background-color: #ffffff6e;
+      p{
+        margin-top: 4px;
+        margin-left: 10px;
+      }
+
+    }
+    div {
+      width: 250px;
+      height: 100px;
+      overflow: hidden;
+      background-image: url('logodiv.png');
+      background-size: cover;
+      background-position: center center;
+    }
+    #butão {
+      margin: 10px;
+      padding: 5px;
+      display: block;
+      justify-self: center;
+
+    }
+    input {
+      margin: 0px 30px;
+      padding: 6px;
+    }
+  </style>
+</head>
+<body>
+  <!--logn simpes-->
+  <section>
+    <div>
+
+    </div>
+    <form action="beckbasico.js" method="post">
+      <p>Usuario:</p>
+      <input type="email" name="log" id="logn" placeholder="Nome Usuario">
+      <p>Senha:</p>
+      <input type="password" name="password" id="Senha" placeholder="senha">
+         
+      <input type="button" value="login" onclick="login()" id="butão">
+    </form>
+  </section>
+  <script src="beckbasico.js"></script>  
+</body>
+</html>
