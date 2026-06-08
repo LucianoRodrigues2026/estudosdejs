@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>números</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #a0def5;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-flow: column nowrap;
+      width: 100vw;
+      height: 100vh;
+      h1 {
+        margin: 10px;
+        text-shadow: 1px 1px 1px black, -1px 1px 1px black, 1px -1px 1px black, -1px -1px 1px black ;
+        font-size: 2.2em;
+        color: #ffffff;
+        font-weight: bolder;
+        font-variant: small-caps;
+      }
+    }
+    section{ 
+      width: 420px;
+      background-color: white;
+      padding: 11px;
+      border-radius: 20px;
+    }
+    select {
+      margin: 10px 0px;
+      padding: 10px;
+    }
+    
+    input {
+      padding: 3px;
+    }
+    .butão:hover {
+      background-color: lightgray;
+      border: none;
+    }
+    #finalizar {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Analisandor de Números </h1>
+
+  <section>
+
+    <label for="numero">Numero(enter 1 e 100): </label>
+    <input type="number" name="numero" id="numero" placeholder="Número">
+
+    <input type="button" value="enviar" class="butão" id="enviar" onclick="clicou()">
+
+    <select name="numeros" id="tela" size="10">
+      <option value="">Números Aqui</option>
+    </select>
+
+    <input type="button" value="Finalizar" class="butão" id="finalizar">
+
+  </section>
+  <script>
+    
+
+    function clicou(){
+      
+      var numero = document.getElementById('numero')
+      numero = Number(numero)
+      var tela = document.getElementById('tela')
+      var finalizar = document.getElementById('finalizar')
+      
+      var lista = []
+      tela.appendChild(lista)
+
+
+
+
+    }
+  </script>
+</body>
+</html>
