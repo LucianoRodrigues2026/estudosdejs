@@ -65,7 +65,7 @@
       <option value="">Números Aqui</option>
     </select>
 
-    <input type="button" value="Finalizar" class="butão" id="finalizar">
+    <input type="button" value="Finalizar" class="butão" id="finalizar" onclick="finalizar()">
 
   </section>
   <script>
@@ -80,10 +80,16 @@
       
       var lista = []
       tela.appendChild(lista)
+      do {
+        var paraLista = `${numero}`
+        if (numero in lista){
+          lista.push(paraLista)
+        }
+      } while (condition);
 
-
-
-
+    }
+    function finalizar(){
+      
     }
   </script>
 </body>
