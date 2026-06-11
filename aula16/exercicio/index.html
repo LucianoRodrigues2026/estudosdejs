@@ -30,7 +30,7 @@
     section{ 
       position: relative;
       width: 420px;
-      height: 275px;
+      height: 290px;
       background-color: white;
       padding: 11px;
       border-radius: 10px;
@@ -38,6 +38,10 @@
     select {
       margin: 10px 0px;
       padding: 10px;
+      option{
+        padding: 1px;
+        color: rgb(217, 21, 21);
+      }
     }
     #result {
       display: none;
@@ -47,6 +51,7 @@
       background-color: #ffffff;
       top: 47px;
       left: 144px;
+      padding: 5px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.553);
     }
     
@@ -84,29 +89,38 @@
 
 
   <script>
-    function fim(){
-      var resultado = document.getElementById('result')
-      resultado.style = 'display:block;'
-    }
-
 
     var lista = []
 
+    function fim(){
+      var resultado = document.getElementById('result')
+      resultado.style = 'display:block;'
+      resultado.innerHTML = `<p> você adicionol ${lista.length} numeros</p>`
+      for (var n = lista; n == resultado.length; n++){
+
+      }
+    }
+
+
+    
+
     function enviar(){
+     // tela.innerHTML = "" //dic que option dentro do selection esta vazio
       var num = document.getElementById('numero').value
 
       if (num >= 1 && num <= 100){
         if (lista.indexOf(num)){ 
           lista.push(num)
           var tela = document.getElementById('tela')
-          //tela.innerHTML = "" dic que option dentro do selection esta vazio
           var sel = document.createElement('option')
           sel.innerText = `${num} foi adcionado`
           tela.appendChild(sel)
+          var resultado = document.getElementById('result')
+          resultado.style = 'display:none;'
         }else {
           var resultado = document.getElementById('result')
           resultado.style = 'display:block;'
-          resultado.innerHTML = '<p> Esse número ja foi analisado</p>'  
+          resultado.innerHTML = '<p> Esse número ja foi analisado!</p>'  
 
 
         }
