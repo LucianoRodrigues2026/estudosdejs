@@ -36,23 +36,26 @@
       border-radius: 10px;
     }
     select {
+      border-color: blue;
       margin: 10px 0px;
-      padding: 10px;
+      padding: 5px;
       option{
         padding: 1px;
         color: rgb(217, 21, 21);
       }
     }
     #result {
+      background-color: #ffffff;
       display: none;
-      width: 242px;
+      width: 235px;
       height: 183px;
       position: absolute;
-      background-color: #ffffff;
       top: 47px;
-      left: 144px;
-      padding: 5px;
+      left: 152px;
+      padding: 10px;
+      text-align: center;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.553);
+      flex-flow: column nowrap;
     }
     
     input {
@@ -89,48 +92,71 @@
 
 
   <script>
+    
+
 
     var lista = []
-
-    function fim(){
-      var resultado = document.getElementById('result')
-      resultado.style = 'display:block;'
-      resultado.innerHTML = `<p> você adicionol ${lista.length} numeros</p>`
-      for (var n = lista; n == resultado.length; n++){
-
-      }
-    }
-
-
     
 
     function enviar(){
-     // tela.innerHTML = "" //dic que option dentro do selection esta vazio
-      var num = document.getElementById('numero').value
 
+      var num = document.getElementById('numero').value
+      num = Number(num)
+        
+        
       if (num >= 1 && num <= 100){
-        if (lista.indexOf(num)){ 
+        if (lista.indexOf(num) === -1){ 
           lista.push(num)
           var tela = document.getElementById('tela')
           var sel = document.createElement('option')
-          sel.innerText = `${num} foi adcionado`
+          sel.innerText = `valor ${num} adcionado`
           tela.appendChild(sel)
           var resultado = document.getElementById('result')
           resultado.style = 'display:none;'
         }else {
           var resultado = document.getElementById('result')
           resultado.style = 'display:block;'
-          resultado.innerHTML = '<p> Esse número ja foi analisado!</p>'  
+          resultado.style.backgroundColor = 'red'
+          resultado.style.color = '#fff'
+          resultado.innerHTML = '<h1> Esse número ja foi analisado!</h1>'  
 
 
         }
 
-      }else{
-        alert('Obedeça os paremetros!')
-      }
-      
-            
+        }else{
+          alert('Obedeça os paremetros!')
+        }      
 
+    }
+    
+    var soma = 0 
+
+    function fim(){
+      
+      if (lista.length == 0){
+
+        alert('você precissa selecionar um número')
+
+      }else{
+        /*O perigo do <=: Se uma lista tem 3 elementos, os índices dela são 0, 1 e 2. Se você usar indice <= lista.length q e igual 3, o loop vai tentar puxar o índice 3 que não existe*/
+        for (var indice = 0; indice < lista.length; indice++){
+        soma += lista[indice]
+
+        }
+        var media = soma / lista.length
+
+        var resultado = document.getElementById('result')
+        resultado.style = 'display:flex;'
+        resultado.style.justifyContent = 'center'
+        resultado.style.alignItems = 'center'
+      // numca esqueser que += com string serve par concatenar
+        resultado.innerHTML = `<p> Você cadrastou ${lista.length} numeros!</p>`
+        resultado.innerHTML += `<p> A soma dos números e ${soma}!</p>`
+        resultado.innerHTML += `<p> E essa e a media ${media}!</p>`
+
+      }
+
+      
     }
 
     
