@@ -125,13 +125,18 @@
 
         }else{
           alert('Obedeça os paremetros!')
-        }      
+        }   
+      //responsavel por apagar o input e adicionar o foco no input
+      var numero = document.getElementById('numero')
+      numero.value = ''
+      numero.focus()
 
     }
     
-    var soma = 0 
+    
 
     function fim(){
+      var soma = 0 
       
       if (lista.length == 0){
 
@@ -143,7 +148,20 @@
         soma += lista[indice]
 
         }
+
         var media = soma / lista.length
+
+        var maior = 0
+        var menor = 100
+        /*esse e um laço que vai percorer a lista/Array, onde as condçoes vão verifiacar se o indece 0 for o maior ou o menor e ira substituir pelo maior ou menor*/
+        for (var pos in lista){
+          if (Number(lista[pos]) > maior){
+            maior = lista[pos]
+          }
+          if (Number(lista[pos])  < menor){
+            menor = lista[pos]
+          }
+        }
 
         var resultado = document.getElementById('result')
         resultado.style = 'display:flex;'
@@ -153,6 +171,9 @@
         resultado.innerHTML = `<p> Você cadrastou ${lista.length} numeros!</p>`
         resultado.innerHTML += `<p> A soma dos números e ${soma}!</p>`
         resultado.innerHTML += `<p> E essa e a media ${media}!</p>`
+        resultado.innerHTML += `<p> E esse foi o maior ${maior}!</p>`
+        resultado.innerHTML += `<p> E esse foi o menor ${menor}!</p>`
+
 
       }
 
