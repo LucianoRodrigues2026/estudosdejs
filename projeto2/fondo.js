@@ -3,10 +3,10 @@
 
 function fundo(){
   let corpo = document.getElementById('corpo')
-  //let botao = document.getElementByI('cor')
+  let botao = document.getElementById('cor')
 
   corpo.style.backgroundColor = cores[começo]
-  //cores.style.backgroundColor = cores[começo]
+  botao.style.color = cores[começo]
 
   começo ++
 
@@ -16,5 +16,6 @@ function fundo(){
     começo == começo
 
   }
+
 
 }
